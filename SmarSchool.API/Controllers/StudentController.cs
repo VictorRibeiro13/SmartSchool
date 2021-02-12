@@ -13,7 +13,7 @@ namespace SmartSchool.API.Controllers {
         // GET: api/<StudentController>
         [HttpGet]
         public IEnumerable<string> Get() {
-            return new string[] { "SmarSchoolAPI" };
+            return new string[] { "SmartSchoolAPI" };
         }
 
         // GET api/<StudentController>/5
