@@ -1,25 +1,50 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SmartSchool.API.Data;
 using System;
-using System.Collections.Generic;
+using SmarSchool.API.Entities;
 using System.Linq;
-using System.Threading.Tasks;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace SmartSchool.API.Controllers {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class StudentController : ControllerBase {
+
+        private readonly SmartSchoolContext _context;
+
+        public StudentController(SmartSchoolContext ctx) {
+            _context = ctx;
+        }
+
         // GET: api/<StudentController>
         [HttpGet]
-        public IEnumerable<string> Get() {
-            return new string[] { "SmartSchoolAPI" };
+        public IActionResult Get(int offSet = 0, int pageSize = 3) {
+            // improve in the future
+            return Ok(_context.students.Skip(offSet).Take(pageSize));
         }
 
         // GET api/<StudentController>/5
         [HttpGet("{id}")]
-        public string Get(int id) {
-            return "value";
+        public IActionResult GetById(int id) {
+            var student = _context.students.FirstOrDefault(s => s.Id == id);
+
+            if (student == null) {
+                return BadRequest("Th student was not found");
+            }
+
+            return Ok(student);
+        }
+
+        // GET api/<StudentController>/peter
+        [HttpGet("{id}")]
+        public IActionResult GetByName(string name, string lastName)
+        {
+            var student = _context.students.FirstOrDefault(s => s.Name.Contains(name) && s.LastName.Contains(lastName));
+
+            if (student == null) {
+                return BadRequest("Th student was not found");
+            }
+
+            return Ok(student);
         }
 
         // POST api/<StudentController>
