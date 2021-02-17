@@ -1,12 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using SmarSchool.API.Models;
+using SmarSchool.API.Entities;
 
 namespace SmartSchool.API.Data {
     public class SmartSchoolContext : DbContext 
     {
         public SmartSchoolContext(DbContextOptions<SmartSchoolContext> options) : base(options) {}
-
         public DbSet<Student> students { get; set; }
         public DbSet<Teacher> teachers { get; set; }
         public DbSet<Subject> subjects { get; set; }
