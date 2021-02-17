@@ -12,10 +12,9 @@ namespace SmarSchool.API.Entities
 
         public Teacher() { }
 
-        public Teacher(int id, string name, IEnumerable<Subject> subjects) {
+        public Teacher(int id, string name) {
             Id = id;
             Name = name;
-            Subjects = subjects;
         }
     }
 }

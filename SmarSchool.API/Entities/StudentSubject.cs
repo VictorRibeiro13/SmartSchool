@@ -11,10 +11,7 @@ namespace SmarSchool.API.Entities
         public int SubjectId { get; set; }
         public Subject Subject { get; set; }
 
-        public StudentSubject()
-        {
-
-        }
+        public StudentSubject() {}
 
         public StudentSubject(int studentId, int subjectId) {
             StudentId = studentId;

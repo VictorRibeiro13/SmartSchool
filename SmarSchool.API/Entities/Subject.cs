@@ -7,7 +7,7 @@ namespace SmarSchool.API.Entities {
         public string Name { get; set; }
         public int TeacherId { get; set; }
         public Teacher Teacher { get; set; }
-        public IEnumerable<StudentSubject> StudentsInSubject { get; set; }
+        public IEnumerable<StudentSubject> StudentsSubject { get; set; }
 
         public Subject() {}
 
