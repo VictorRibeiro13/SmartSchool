@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SmarSchool.API.Models {
+namespace SmarSchool.API.Entities {
     public class Subject {
         public int Id { get; set; }
         public string Name { get; set; }
